@@ -18,8 +18,8 @@ RUN curl \
 RUN tar -xJf $SHELLCHECK_VERSION.$OS.$ARCH.tar.xz
 
 RUN curl \
-      https://github.com/mvdan/sh/releases/download/v$SHFMT_VERSION/shfmt_v$SHFMT_VERSION_$OS_amd64 \
-      -o shfmt
+      -L https://github.com/mvdan/sh/releases/download/v${SHFMT_VERSION}/shfmt_v${SHFMT_VERSION}_${OS}_amd64 \
+      --output shfmt
 
 RUN chmod +x ./shfmt
 
