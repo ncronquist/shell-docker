@@ -43,5 +43,9 @@ ARG SHFMT_VERSION_DEFAULT
 ENV SHELLCHECK_VERSION=$SHELLCHECK_VERSION_DEFAULT
 ENV SHFMT_VERSION=$SHFMT_VERSION_DEFAULT
 
+# Install bats for running tests
+# Probably not the best way to do this, but convenient
+RUN apk upgrade && apk add bats
+
 COPY --from=build "/home/root/shellcheck-v${SHELLCHECK_VERSION}/shellcheck" /bin
 COPY --from=build /home/root/shfmt /bin
